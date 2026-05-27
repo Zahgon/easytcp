@@ -6,7 +6,6 @@ package mock
 
 import (
 	net "net"
-	reflect "reflect"
 	time "time"
 
 	gomock "github.com/golang/mock/gomock"
@@ -24,59 +23,35 @@ type MockListenerMockRecorder struct {
 }
 
 // NewMockListener creates a new mock instance.
-func NewMockListener(ctrl *gomock.Controller) *MockListener {
-	mock := &MockListener{ctrl: ctrl}
-	mock.recorder = &MockListenerMockRecorder{mock}
-	return mock
-}
+func NewMockListener(ctrl *gomock.Controller) *MockListener { _ = "STUB: not implemented"; return nil }
 
 // EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockListener) EXPECT() *MockListenerMockRecorder {
-	return m.recorder
+	_ = "STUB: not implemented"
+
+	// Accept mocks base method.
+	return nil
 }
 
-// Accept mocks base method.
 func (m *MockListener) Accept() (net.Conn, error) {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Accept")
-	ret0, _ := ret[0].(net.Conn)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	_ = "STUB: not implemented"
+	return *new(net.Conn), nil
 }
 
 // Accept indicates an expected call of Accept.
-func (mr *MockListenerMockRecorder) Accept() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Accept", reflect.TypeOf((*MockListener)(nil).Accept))
-}
+func (mr *MockListenerMockRecorder) Accept() *gomock.Call { _ = "STUB: not implemented"; return nil }
 
 // Addr mocks base method.
-func (m *MockListener) Addr() net.Addr {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Addr")
-	ret0, _ := ret[0].(net.Addr)
-	return ret0
-}
+func (m *MockListener) Addr() net.Addr { _ = "STUB: not implemented"; return *new(net.Addr) }
 
 // Addr indicates an expected call of Addr.
-func (mr *MockListenerMockRecorder) Addr() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Addr", reflect.TypeOf((*MockListener)(nil).Addr))
-}
+func (mr *MockListenerMockRecorder) Addr() *gomock.Call { _ = "STUB: not implemented"; return nil }
 
 // Close mocks base method.
-func (m *MockListener) Close() error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Close")
-	ret0, _ := ret[0].(error)
-	return ret0
-}
+func (m *MockListener) Close() error { _ = "STUB: not implemented"; return nil }
 
 // Close indicates an expected call of Close.
-func (mr *MockListenerMockRecorder) Close() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Close", reflect.TypeOf((*MockListener)(nil).Close))
-}
+func (mr *MockListenerMockRecorder) Close() *gomock.Call { _ = "STUB: not implemented"; return nil }
 
 // MockError is a mock of Error interface.
 type MockError struct {
@@ -90,58 +65,32 @@ type MockErrorMockRecorder struct {
 }
 
 // NewMockError creates a new mock instance.
-func NewMockError(ctrl *gomock.Controller) *MockError {
-	mock := &MockError{ctrl: ctrl}
-	mock.recorder = &MockErrorMockRecorder{mock}
-	return mock
-}
+func NewMockError(ctrl *gomock.Controller) *MockError { _ = "STUB: not implemented"; return nil }
 
 // EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockError) EXPECT() *MockErrorMockRecorder {
-	return m.recorder
+	_ = "STUB: not implemented"
+
+	// Error mocks base method.
+	return nil
 }
 
-// Error mocks base method.
-func (m *MockError) Error() string {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Error")
-	ret0, _ := ret[0].(string)
-	return ret0
-}
+func (m *MockError) Error() string { _ = "STUB: not implemented"; return "" }
 
 // Error indicates an expected call of Error.
-func (mr *MockErrorMockRecorder) Error() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Error", reflect.TypeOf((*MockError)(nil).Error))
-}
+func (mr *MockErrorMockRecorder) Error() *gomock.Call { _ = "STUB: not implemented"; return nil }
 
 // Temporary mocks base method.
-func (m *MockError) Temporary() bool {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Temporary")
-	ret0, _ := ret[0].(bool)
-	return ret0
-}
+func (m *MockError) Temporary() bool { _ = "STUB: not implemented"; return false }
 
 // Temporary indicates an expected call of Temporary.
-func (mr *MockErrorMockRecorder) Temporary() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Temporary", reflect.TypeOf((*MockError)(nil).Temporary))
-}
+func (mr *MockErrorMockRecorder) Temporary() *gomock.Call { _ = "STUB: not implemented"; return nil }
 
 // Timeout mocks base method.
-func (m *MockError) Timeout() bool {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Timeout")
-	ret0, _ := ret[0].(bool)
-	return ret0
-}
+func (m *MockError) Timeout() bool { _ = "STUB: not implemented"; return false }
 
 // Timeout indicates an expected call of Timeout.
-func (mr *MockErrorMockRecorder) Timeout() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Timeout", reflect.TypeOf((*MockError)(nil).Timeout))
-}
+func (mr *MockErrorMockRecorder) Timeout() *gomock.Call { _ = "STUB: not implemented"; return nil }
 
 // MockConn is a mock of Conn interface.
 type MockConn struct {
@@ -155,127 +104,74 @@ type MockConnMockRecorder struct {
 }
 
 // NewMockConn creates a new mock instance.
-func NewMockConn(ctrl *gomock.Controller) *MockConn {
-	mock := &MockConn{ctrl: ctrl}
-	mock.recorder = &MockConnMockRecorder{mock}
-	return mock
-}
+func NewMockConn(ctrl *gomock.Controller) *MockConn { _ = "STUB: not implemented"; return nil }
 
 // EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockConn) EXPECT() *MockConnMockRecorder {
-	return m.recorder
+	_ = "STUB: not implemented"
+
+	// Close mocks base method.
+	return nil
 }
 
-// Close mocks base method.
-func (m *MockConn) Close() error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Close")
-	ret0, _ := ret[0].(error)
-	return ret0
-}
+func (m *MockConn) Close() error { _ = "STUB: not implemented"; return nil }
 
 // Close indicates an expected call of Close.
-func (mr *MockConnMockRecorder) Close() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Close", reflect.TypeOf((*MockConn)(nil).Close))
-}
+func (mr *MockConnMockRecorder) Close() *gomock.Call { _ = "STUB: not implemented"; return nil }
 
 // LocalAddr mocks base method.
-func (m *MockConn) LocalAddr() net.Addr {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "LocalAddr")
-	ret0, _ := ret[0].(net.Addr)
-	return ret0
-}
+func (m *MockConn) LocalAddr() net.Addr { _ = "STUB: not implemented"; return *new(net.Addr) }
 
 // LocalAddr indicates an expected call of LocalAddr.
-func (mr *MockConnMockRecorder) LocalAddr() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "LocalAddr", reflect.TypeOf((*MockConn)(nil).LocalAddr))
-}
+func (mr *MockConnMockRecorder) LocalAddr() *gomock.Call { _ = "STUB: not implemented"; return nil }
 
 // Read mocks base method.
-func (m *MockConn) Read(arg0 []byte) (int, error) {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Read", arg0)
-	ret0, _ := ret[0].(int)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
-}
+func (m *MockConn) Read(arg0 []byte) (int, error) { _ = "STUB: not implemented"; return 0, nil }
 
 // Read indicates an expected call of Read.
 func (mr *MockConnMockRecorder) Read(arg0 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Read", reflect.TypeOf((*MockConn)(nil).Read), arg0)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // RemoteAddr mocks base method.
-func (m *MockConn) RemoteAddr() net.Addr {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "RemoteAddr")
-	ret0, _ := ret[0].(net.Addr)
-	return ret0
-}
+func (m *MockConn) RemoteAddr() net.Addr { _ = "STUB: not implemented"; return *new(net.Addr) }
 
 // RemoteAddr indicates an expected call of RemoteAddr.
-func (mr *MockConnMockRecorder) RemoteAddr() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RemoteAddr", reflect.TypeOf((*MockConn)(nil).RemoteAddr))
-}
+func (mr *MockConnMockRecorder) RemoteAddr() *gomock.Call { _ = "STUB: not implemented"; return nil }
 
 // SetDeadline mocks base method.
-func (m *MockConn) SetDeadline(arg0 time.Time) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "SetDeadline", arg0)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
+func (m *MockConn) SetDeadline(arg0 time.Time) error { _ = "STUB: not implemented"; return nil }
 
 // SetDeadline indicates an expected call of SetDeadline.
 func (mr *MockConnMockRecorder) SetDeadline(arg0 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetDeadline", reflect.TypeOf((*MockConn)(nil).SetDeadline), arg0)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetReadDeadline mocks base method.
-func (m *MockConn) SetReadDeadline(arg0 time.Time) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "SetReadDeadline", arg0)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
+func (m *MockConn) SetReadDeadline(arg0 time.Time) error { _ = "STUB: not implemented"; return nil }
 
 // SetReadDeadline indicates an expected call of SetReadDeadline.
 func (mr *MockConnMockRecorder) SetReadDeadline(arg0 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetReadDeadline", reflect.TypeOf((*MockConn)(nil).SetReadDeadline), arg0)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetWriteDeadline mocks base method.
-func (m *MockConn) SetWriteDeadline(arg0 time.Time) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "SetWriteDeadline", arg0)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
+func (m *MockConn) SetWriteDeadline(arg0 time.Time) error { _ = "STUB: not implemented"; return nil }
 
 // SetWriteDeadline indicates an expected call of SetWriteDeadline.
 func (mr *MockConnMockRecorder) SetWriteDeadline(arg0 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetWriteDeadline", reflect.TypeOf((*MockConn)(nil).SetWriteDeadline), arg0)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Write mocks base method.
-func (m *MockConn) Write(arg0 []byte) (int, error) {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Write", arg0)
-	ret0, _ := ret[0].(int)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
-}
+func (m *MockConn) Write(arg0 []byte) (int, error) { _ = "STUB: not implemented"; return 0, nil }
 
 // Write indicates an expected call of Write.
 func (mr *MockConnMockRecorder) Write(arg0 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Write", reflect.TypeOf((*MockConn)(nil).Write), arg0)
+	_ = "STUB: not implemented"
+	return nil
 }

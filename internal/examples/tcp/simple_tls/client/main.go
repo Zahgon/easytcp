@@ -3,12 +3,13 @@ package main
 import (
 	"crypto/tls"
 	"crypto/x509"
+	"io/ioutil"
+	"time"
+
 	"github.com/DarthPestilane/easytcp"
 	"github.com/DarthPestilane/easytcp/internal/examples/fixture"
 	"github.com/DarthPestilane/easytcp/internal/examples/tcp/simple_tls/common"
 	"github.com/sirupsen/logrus"
-	"io/ioutil"
-	"time"
 )
 
 func main() {

@@ -1,14 +1,14 @@
 package main
 
 import (
-	"fmt"
+	"os"
+	"os/signal"
+	"syscall"
+
 	"github.com/DarthPestilane/easytcp"
 	"github.com/DarthPestilane/easytcp/internal/examples/fixture"
 	"github.com/DarthPestilane/easytcp/internal/examples/tcp/custom_packet/common"
 	"github.com/sirupsen/logrus"
-	"os"
-	"os/signal"
-	"syscall"
 )
 
 var log *logrus.Logger
@@ -43,33 +43,9 @@ func main() {
 	}
 }
 
-func handler(ctx easytcp.Context) {
-	var data common.Json01Req
-	_ = ctx.Bind(&data)
-
-	err := ctx.SetResponse("json01-resp", &common.Json01Resp{
-		Success: true,
-		Data:    fmt.Sprintf("%s:%d:%t", data.Key1, data.Key2, data.Key3),
-	})
-	if err != nil {
-		log.Errorf("set response failed: %s", err)
-	}
-}
+func handler(ctx easytcp.Context) { _ = "STUB: not implemented"; return }
 
 func logMiddleware(next easytcp.HandlerFunc) easytcp.HandlerFunc {
-	return func(ctx easytcp.Context) {
-		fullSize := ctx.Request().MustGet("fullSize")
-		req := ctx.Request()
-		log.Infof("recv request  | fullSize:(%d) id:(%v) dataSize(%d) data: %s", fullSize, req.ID(), len(req.Data()), req.Data())
-
-		defer func() {
-			resp := ctx.Response()
-			if resp != nil {
-				log.Infof("send response | dataSize:(%d) id:(%v) data: %s", len(resp.Data()), resp.ID(), resp.Data())
-			} else {
-				log.Infof("don't send response since nil")
-			}
-		}()
-		next(ctx)
-	}
+	_ = "STUB: not implemented"
+	return *new(easytcp.HandlerFunc)
 }

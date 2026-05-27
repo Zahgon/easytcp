@@ -1,13 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"github.com/DarthPestilane/easytcp"
-	"github.com/DarthPestilane/easytcp/internal/examples/fixture"
-	"github.com/DarthPestilane/easytcp/internal/examples/tcp/broadcast/common"
-	"github.com/sirupsen/logrus"
 	"net"
-	"time"
+
+	"github.com/DarthPestilane/easytcp"
+	"github.com/sirupsen/logrus"
 )
 
 var log *logrus.Logger
@@ -28,57 +25,12 @@ func main() {
 	select {}
 }
 
-func establish() (net.Conn, error) {
-	return net.Dial("tcp", fixture.ServerAddr)
-}
+func establish() (net.Conn, error) { _ = "STUB: not implemented"; return *new(net.Conn), nil }
 
-func senderClient() {
-	conn, err := establish()
-	if err != nil {
-		log.Error(err)
-		return
-	}
-	// send
-	go func() {
-		for {
-			time.Sleep(time.Second)
-			data := []byte(fmt.Sprintf("hello everyone @%d", time.Now().Unix()))
-			packedMsg, _ := packer.Pack(easytcp.NewMessage(common.MsgIdBroadCastReq, data))
-			if _, err := conn.Write(packedMsg); err != nil {
-				log.Error(err)
-				return
-			}
-		}
-	}()
+func senderClient() { _ = "STUB: not implemented"; return }
 
-	// read
-	go func() {
-		for {
-			msg, err := packer.Unpack(conn)
-			if err != nil {
-				log.Error(err)
-				return
-			}
-			log.Infof("sender | recv ack | %s", msg.Data())
-		}
-	}()
-}
+// send
 
-func readerClient(id int) {
-	conn, err := establish()
-	if err != nil {
-		log.Error(err)
-		return
-	}
+// read
 
-	go func() {
-		for {
-			msg, err := packer.Unpack(conn)
-			if err != nil {
-				log.Error(err)
-				return
-			}
-			log.Debugf("reader %03d | recv broadcast | %s", id, msg.Data())
-		}
-	}()
-}
+func readerClient(id int) { _ = "STUB: not implemented"; return }

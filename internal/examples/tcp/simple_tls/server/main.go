@@ -2,16 +2,15 @@ package main
 
 import (
 	"crypto/tls"
-	"fmt"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
+
 	"github.com/DarthPestilane/easytcp"
 	"github.com/DarthPestilane/easytcp/internal/examples/fixture"
 	"github.com/DarthPestilane/easytcp/internal/examples/tcp/simple_tls/common"
 	"github.com/sirupsen/logrus"
-	"os"
-	"os/signal"
-	"runtime"
-	"syscall"
-	"time"
 )
 
 var log *logrus.Logger
@@ -67,21 +66,9 @@ func main() {
 }
 
 func logMiddleware(next easytcp.HandlerFunc) easytcp.HandlerFunc {
-	return func(c easytcp.Context) {
-		req := c.Request()
-		log.Infof("rec <<< id:(%d) size:(%d) data: %s", req.ID, len(req.Data()), req.Data())
-		defer func() {
-			resp := c.Response()
-			log.Infof("snd >>> id:(%d) size:(%d) data: %s", resp.ID, len(resp.Data()), resp.Data())
-		}()
-		next(c)
-	}
+	_ = "STUB: not implemented"
+	return *new(easytcp.HandlerFunc)
 }
 
 // nolint: deadcode, unused
-func printGoroutineNum() {
-	for {
-		fmt.Println("goroutine num: ", runtime.NumGoroutine())
-		time.Sleep(time.Second)
-	}
-}
+func printGoroutineNum() { _ = "STUB: not implemented"; return }

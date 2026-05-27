@@ -6,7 +6,6 @@ package easytcp
 
 import (
 	io "io"
-	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"
 )
@@ -23,43 +22,35 @@ type MockPackerMockRecorder struct {
 }
 
 // NewMockPacker creates a new mock instance.
-func NewMockPacker(ctrl *gomock.Controller) *MockPacker {
-	mock := &MockPacker{ctrl: ctrl}
-	mock.recorder = &MockPackerMockRecorder{mock}
-	return mock
-}
+func NewMockPacker(ctrl *gomock.Controller) *MockPacker { _ = "STUB: not implemented"; return nil }
 
 // EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockPacker) EXPECT() *MockPackerMockRecorder {
-	return m.recorder
+	_ = "STUB: not implemented"
+
+	// Pack mocks base method.
+	return nil
 }
 
-// Pack mocks base method.
 func (m *MockPacker) Pack(arg0 *Message) ([]byte, error) {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Pack", arg0)
-	ret0, _ := ret[0].([]byte)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Pack indicates an expected call of Pack.
 func (mr *MockPackerMockRecorder) Pack(arg0 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Pack", reflect.TypeOf((*MockPacker)(nil).Pack), arg0)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Unpack mocks base method.
 func (m *MockPacker) Unpack(arg0 io.Reader) (*Message, error) {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Unpack", arg0)
-	ret0, _ := ret[0].(*Message)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Unpack indicates an expected call of Unpack.
 func (mr *MockPackerMockRecorder) Unpack(arg0 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Unpack", reflect.TypeOf((*MockPacker)(nil).Unpack), arg0)
+	_ = "STUB: not implemented"
+	return nil
 }

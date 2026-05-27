@@ -1,12 +1,13 @@
 package main
 
 import (
+	"net"
+	"time"
+
 	"github.com/DarthPestilane/easytcp"
 	"github.com/DarthPestilane/easytcp/internal/examples/fixture"
 	"github.com/DarthPestilane/easytcp/internal/examples/tcp/proto_packet/common"
 	"github.com/sirupsen/logrus"
-	"net"
-	"time"
 )
 
 var log *logrus.Logger

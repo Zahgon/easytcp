@@ -3,10 +3,6 @@
 
 package easytcp
 
-import (
-	"encoding/json"
-)
-
 var _ Codec = &JsonCodec{}
 
 // JsonCodec implements the Codec interface.
@@ -15,10 +11,11 @@ type JsonCodec struct{}
 
 // Encode implements the Codec Encode method.
 func (c *JsonCodec) Encode(v interface{}) ([]byte, error) {
-	return json.Marshal(v)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// Decode implements the Codec Decode method.
+		nil
 }
 
-// Decode implements the Codec Decode method.
-func (c *JsonCodec) Decode(data []byte, v interface{}) error {
-	return json.Unmarshal(data, v)
-}
+func (c *JsonCodec) Decode(data []byte, v interface{}) error { _ = "STUB: not implemented"; return nil }

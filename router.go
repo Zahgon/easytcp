@@ -1,23 +1,6 @@
 package easytcp
 
-import (
-	"fmt"
-	"github.com/olekukonko/tablewriter"
-	"github.com/spf13/cast"
-	"io"
-	"os"
-	"reflect"
-	"runtime"
-	"sort"
-	"strings"
-)
-
-func newRouter() *Router {
-	return &Router{
-		handlerMapper:     make(map[interface{}]HandlerFunc),
-		middlewaresMapper: make(map[interface{}][]MiddlewareFunc),
-	}
-}
+func newRouter() *Router { _ = "STUB: not implemented"; return nil }
 
 // Router is a router for incoming message.
 // Router routes the message to its handler and middlewares.
@@ -54,120 +37,46 @@ var nilHandler HandlerFunc = func(ctx Context) {}
 
 // handleRequest walks ctx through middlewares and handler,
 // and returns response message.
-func (r *Router) handleRequest(ctx Context) {
-	reqMsg := ctx.Request()
-	if reqMsg == nil {
-		return
-	}
-	var handler HandlerFunc
-	if v, has := r.handlerMapper[reqMsg.ID()]; has {
-		handler = v
-	}
+func (r *Router) handleRequest(ctx Context) { _ = "STUB: not implemented"; return }
 
-	var mws = r.globalMiddlewares
-	if v, has := r.middlewaresMapper[reqMsg.ID()]; has {
-		mws = append(mws, v...) // append to global ones
-	}
+// append to global ones
 
-	// create the handlers stack
-	wrapped := r.wrapHandlers(handler, mws)
+// create the handlers stack
 
-	// and call the handlers stack
-	wrapped(ctx)
-}
+// and call the handlers stack
 
 // wrapHandlers wraps handler and middlewares into a right order call stack.
 // Makes something like:
 //
 //	var wrapped HandlerFunc = m1(m2(m3(handle)))
 func (r *Router) wrapHandlers(handler HandlerFunc, middles []MiddlewareFunc) (wrapped HandlerFunc) {
-	if handler == nil {
-		handler = r.notFoundHandler
-	}
-	if handler == nil {
-		handler = nilHandler
-	}
-	wrapped = handler
-	for i := len(middles) - 1; i >= 0; i-- {
-		m := middles[i]
-		wrapped = m(wrapped)
-	}
-	return wrapped
+	_ = "STUB: not implemented"
+	return *new(HandlerFunc)
 }
 
 // register stores handler and middlewares for id.
 func (r *Router) register(id interface{}, h HandlerFunc, m ...MiddlewareFunc) {
-	if h != nil {
-		r.handlerMapper[id] = h
-	}
-	ms := make([]MiddlewareFunc, 0, len(m))
-	for _, mm := range m {
-		if mm != nil {
-			ms = append(ms, mm)
-		}
-	}
-	if len(ms) != 0 {
-		r.middlewaresMapper[id] = ms
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // registerMiddleware stores the global middlewares.
-func (r *Router) registerMiddleware(m ...MiddlewareFunc) {
-	for _, mm := range m {
-		if mm != nil {
-			r.globalMiddlewares = append(r.globalMiddlewares, mm)
-		}
-	}
-}
+func (r *Router) registerMiddleware(m ...MiddlewareFunc) { _ = "STUB: not implemented"; return }
 
 // printHandlers prints registered route handlers to console.
-func (r *Router) printHandlers(addr string) {
-	var w io.Writer = os.Stdout
+func (r *Router) printHandlers(addr string) { _ = "STUB: not implemented"; return }
 
-	_, _ = fmt.Fprintf(w, "\n[EASYTCP] Message-Route Table:\n")
-	table := tablewriter.NewWriter(w)
-	table.SetHeader([]string{"Message ID", "Route Handler", "Middleware"})
-	table.SetAutoFormatHeaders(false) // don't uppercase the header
-	table.SetAutoWrapText(false)      // respect the "\n" of cell content
-	table.SetRowLine(true)
-	table.SetColumnAlignment([]int{tablewriter.ALIGN_RIGHT, tablewriter.ALIGN_RIGHT, tablewriter.ALIGN_LEFT})
+// don't uppercase the header
+// respect the "\n" of cell content
 
-	// sort ids
-	ids := make([]interface{}, 0, len(r.handlerMapper))
-	for id := range r.handlerMapper {
-		ids = append(ids, id)
-	}
-	sort.Slice(ids, func(i, j int) bool {
-		a, b := cast.ToString(ids[i]), cast.ToString(ids[j])
-		return a < b
-	})
+// sort ids
 
-	// add table row
-	for _, id := range ids {
-		// route handler
-		h := r.handlerMapper[id]
-		handlerName := runtime.FuncForPC(reflect.ValueOf(h).Pointer()).Name()
+// add table row
 
-		middlewareNames := make([]string, 0, len(r.globalMiddlewares)+len(r.middlewaresMapper[id]))
-		// global middleware
-		for _, m := range r.globalMiddlewares {
-			middlewareName := fmt.Sprintf("%s(g)", runtime.FuncForPC(reflect.ValueOf(m).Pointer()).Name())
-			middlewareNames = append(middlewareNames, middlewareName)
-		}
+// route handler
 
-		// route middleware
-		for _, m := range r.middlewaresMapper[id] {
-			middlewareName := runtime.FuncForPC(reflect.ValueOf(m).Pointer()).Name()
-			middlewareNames = append(middlewareNames, middlewareName)
-		}
+// global middleware
 
-		table.Append([]string{fmt.Sprintf("%v", id), handlerName, strings.Join(middlewareNames, "\n")})
-	}
+// route middleware
 
-	table.Render()
-	_, _ = fmt.Fprintf(w, "[EASYTCP] Serving at: %s\n\n", addr)
-}
-
-func (r *Router) setNotFoundHandler(handler HandlerFunc) {
-	r.notFoundHandler = handler
-}
+func (r *Router) setNotFoundHandler(handler HandlerFunc) { _ = "STUB: not implemented"; return }

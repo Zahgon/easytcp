@@ -2,15 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/DarthPestilane/easytcp"
-	"github.com/DarthPestilane/easytcp/internal/examples/fixture"
-	"github.com/DarthPestilane/easytcp/internal/examples/tcp/broadcast/common"
-	"github.com/sirupsen/logrus"
 	"os"
 	"os/signal"
 	"sync"
 	"syscall"
 	"time"
+
+	"github.com/DarthPestilane/easytcp"
+	"github.com/DarthPestilane/easytcp/internal/examples/fixture"
+	"github.com/DarthPestilane/easytcp/internal/examples/tcp/broadcast/common"
+	"github.com/sirupsen/logrus"
 )
 
 var log *logrus.Logger
@@ -88,12 +89,6 @@ func main() {
 }
 
 func logMiddleware(next easytcp.HandlerFunc) easytcp.HandlerFunc {
-	return func(ctx easytcp.Context) {
-		log.Infof("recv request | %s", ctx.Request().Data())
-		defer func() {
-			var respMsg = ctx.Response()
-			log.Infof("send response |sessId: %d; id: %d; size: %d; data: %s", ctx.Session().ID(), respMsg.ID(), len(respMsg.Data()), respMsg.Data())
-		}()
-		next(ctx)
-	}
+	_ = "STUB: not implemented"
+	return *new(easytcp.HandlerFunc)
 }

@@ -7,10 +7,10 @@
 package common
 
 import (
+	"sync"
+
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/runtime/protoimpl"
-	"reflect"
-	"sync"
 )
 
 const (
@@ -42,32 +42,27 @@ var (
 	}
 )
 
-func (x ID) Enum() *ID {
-	p := new(ID)
-	*p = x
-	return p
-}
+func (x ID) Enum() *ID { _ = "STUB: not implemented"; return nil }
 
-func (x ID) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
+func (x ID) String() string { _ = "STUB: not implemented"; return "" }
 
 func (ID) Descriptor() protoreflect.EnumDescriptor {
-	return file_message_proto_enumTypes[0].Descriptor()
+	_ = "STUB: not implemented"
+	return *new(protoreflect.EnumDescriptor)
 }
 
 func (ID) Type() protoreflect.EnumType {
-	return &file_message_proto_enumTypes[0]
+	_ = "STUB: not implemented"
+	return *new(protoreflect.EnumType)
 }
 
 func (x ID) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.EnumNumber)
 }
 
 // Deprecated: Use ID.Descriptor instead.
-func (ID) EnumDescriptor() ([]byte, []int) {
-	return file_message_proto_rawDescGZIP(), []int{0}
-}
+func (ID) EnumDescriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
 type FooReq struct {
 	state         protoimpl.MessageState
@@ -78,51 +73,23 @@ type FooReq struct {
 	Buz int32  `protobuf:"varint,2,opt,name=Buz,proto3" json:"Buz,omitempty"`
 }
 
-func (x *FooReq) Reset() {
-	*x = FooReq{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_message_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *FooReq) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *FooReq) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *FooReq) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*FooReq) ProtoMessage() {}
+func (*FooReq) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *FooReq) ProtoReflect() protoreflect.Message {
-	mi := &file_message_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use FooReq.ProtoReflect.Descriptor instead.
-func (*FooReq) Descriptor() ([]byte, []int) {
-	return file_message_proto_rawDescGZIP(), []int{0}
-}
+func (*FooReq) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
-func (x *FooReq) GetBar() string {
-	if x != nil {
-		return x.Bar
-	}
-	return ""
-}
+func (x *FooReq) GetBar() string { _ = "STUB: not implemented"; return "" }
 
-func (x *FooReq) GetBuz() int32 {
-	if x != nil {
-		return x.Buz
-	}
-	return 0
-}
+func (x *FooReq) GetBuz() int32 { _ = "STUB: not implemented"; return 0 }
 
 type FooResp struct {
 	state         protoimpl.MessageState
@@ -133,51 +100,23 @@ type FooResp struct {
 	Message string `protobuf:"bytes,2,opt,name=Message,proto3" json:"Message,omitempty"`
 }
 
-func (x *FooResp) Reset() {
-	*x = FooResp{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_message_proto_msgTypes[1]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *FooResp) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *FooResp) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *FooResp) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*FooResp) ProtoMessage() {}
+func (*FooResp) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *FooResp) ProtoReflect() protoreflect.Message {
-	mi := &file_message_proto_msgTypes[1]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use FooResp.ProtoReflect.Descriptor instead.
-func (*FooResp) Descriptor() ([]byte, []int) {
-	return file_message_proto_rawDescGZIP(), []int{1}
-}
+func (*FooResp) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
-func (x *FooResp) GetCode() int32 {
-	if x != nil {
-		return x.Code
-	}
-	return 0
-}
+func (x *FooResp) GetCode() int32 { _ = "STUB: not implemented"; return 0 }
 
-func (x *FooResp) GetMessage() string {
-	if x != nil {
-		return x.Message
-	}
-	return ""
-}
+func (x *FooResp) GetMessage() string { _ = "STUB: not implemented"; return "" }
 
 var File_message_proto protoreflect.FileDescriptor
 
@@ -201,12 +140,7 @@ var (
 	file_message_proto_rawDescData = file_message_proto_rawDesc
 )
 
-func file_message_proto_rawDescGZIP() []byte {
-	file_message_proto_rawDescOnce.Do(func() {
-		file_message_proto_rawDescData = protoimpl.X.CompressGZIP(file_message_proto_rawDescData)
-	})
-	return file_message_proto_rawDescData
-}
+func file_message_proto_rawDescGZIP() []byte { _ = "STUB: not implemented"; return nil }
 
 var file_message_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_message_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
@@ -223,54 +157,5 @@ var file_message_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_message_proto_init() }
-func file_message_proto_init() {
-	if File_message_proto != nil {
-		return
-	}
-	if !protoimpl.UnsafeEnabled {
-		file_message_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FooReq); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_message_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FooResp); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-	}
-	type x struct{}
-	out := protoimpl.TypeBuilder{
-		File: protoimpl.DescBuilder{
-			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_message_proto_rawDesc,
-			NumEnums:      1,
-			NumMessages:   2,
-			NumExtensions: 0,
-			NumServices:   0,
-		},
-		GoTypes:           file_message_proto_goTypes,
-		DependencyIndexes: file_message_proto_depIdxs,
-		EnumInfos:         file_message_proto_enumTypes,
-		MessageInfos:      file_message_proto_msgTypes,
-	}.Build()
-	File_message_proto = out.File
-	file_message_proto_rawDesc = nil
-	file_message_proto_goTypes = nil
-	file_message_proto_depIdxs = nil
-}
+func init()                    { file_message_proto_init() }
+func file_message_proto_init() { _ = "STUB: not implemented"; return }

@@ -2,7 +2,6 @@ package easytcp
 
 import (
 	"context"
-	"fmt"
 	"sync"
 	"time"
 )
@@ -73,11 +72,7 @@ type Context interface {
 var _ Context = &routeContext{} // implementation check
 
 // newContext creates a routeContext pointer.
-func newContext() *routeContext {
-	return &routeContext{
-		rawCtx: context.Background(),
-	}
-}
+func newContext() *routeContext { _ = "STUB: not implemented"; return nil }
 
 // routeContext implements the Context interface.
 type routeContext struct {
@@ -91,169 +86,114 @@ type routeContext struct {
 
 // Deadline implements the context.Context Deadline method.
 func (c *routeContext) Deadline() (time.Time, bool) {
-	return c.rawCtx.Deadline()
+	_ = "STUB: not implemented"
+	return *new(time.Time), false
 }
 
 // Done implements the context.Context Done method.
-func (c *routeContext) Done() <-chan struct{} {
-	return c.rawCtx.Done()
-}
+func (c *routeContext) Done() <-chan struct{} { _ = "STUB: not implemented"; return nil }
 
 // Err implements the context.Context Err method.
-func (c *routeContext) Err() error {
-	return c.rawCtx.Err()
-}
+func (c *routeContext) Err() error { _ = "STUB: not implemented"; return nil }
 
 // Value implements the context.Context Value method.
-func (c *routeContext) Value(key interface{}) interface{} {
-	if keyAsString, ok := key.(string); ok {
-		val, _ := c.Get(keyAsString)
-		return val
-	}
-	return nil
-}
+func (c *routeContext) Value(key interface{}) interface{} { _ = "STUB: not implemented"; return nil }
 
 // WithContext sets the underline context.
 func (c *routeContext) WithContext(ctx context.Context) Context {
-	c.rawCtx = ctx
-	return c
+	_ = "STUB: not implemented"
+	return *
+
+	// Session implements Context.Session method.
+	new(Context)
 }
 
-// Session implements Context.Session method.
 func (c *routeContext) Session() Session {
-	return c.session
+	_ = "STUB: not implemented"
+
+	// SetSession sets session.
+	return *new(Session)
 }
 
-// SetSession sets session.
 func (c *routeContext) SetSession(sess Session) Context {
-	c.session = sess
-	return c
+	_ = "STUB: not implemented"
+	return *new(Context)
 }
 
 // Request implements Context.Request method.
 func (c *routeContext) Request() *Message {
-	return c.reqMsg
+	_ = "STUB: not implemented"
+
+	// SetRequest sets request by id and data.
+	return nil
 }
 
-// SetRequest sets request by id and data.
 func (c *routeContext) SetRequest(id, data interface{}) error {
-	codec := c.session.Codec()
-	if codec == nil {
-		return fmt.Errorf("codec is nil")
-	}
-	dataBytes, err := codec.Encode(data)
-	if err != nil {
-		return err
-	}
-	c.reqMsg = NewMessage(id, dataBytes)
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // MustSetRequest implements Context.MustSetRequest method.
 func (c *routeContext) MustSetRequest(id, data interface{}) Context {
-	if err := c.SetRequest(id, data); err != nil {
-		panic(err)
-	}
-	return c
+	_ = "STUB: not implemented"
+	return *new(Context)
 }
 
 // SetRequestMessage sets request message.
 func (c *routeContext) SetRequestMessage(msg *Message) Context {
-	c.reqMsg = msg
-	return c
+	_ = "STUB: not implemented"
+	return *
+
+	// Bind implements Context.Bind method.
+	new(Context)
 }
 
-// Bind implements Context.Bind method.
-func (c *routeContext) Bind(v interface{}) error {
-	if c.session.Codec() == nil {
-		return fmt.Errorf("message codec is nil")
-	}
-	return c.session.Codec().Decode(c.reqMsg.Data(), v)
-}
+func (c *routeContext) Bind(v interface{}) error { _ = "STUB: not implemented"; return nil }
 
 // Response implements Context.Response method.
 func (c *routeContext) Response() *Message {
-	return c.respMsg
+	_ = "STUB: not implemented"
+
+	// SetResponse implements Context.SetResponse method.
+	return nil
 }
 
-// SetResponse implements Context.SetResponse method.
 func (c *routeContext) SetResponse(id, data interface{}) error {
-	codec := c.session.Codec()
-	if codec == nil {
-		return fmt.Errorf("codec is nil")
-	}
-	dataBytes, err := codec.Encode(data)
-	if err != nil {
-		return err
-	}
-	c.respMsg = NewMessage(id, dataBytes)
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // MustSetResponse implements Context.MustSetResponse method.
 func (c *routeContext) MustSetResponse(id, data interface{}) Context {
-	if err := c.SetResponse(id, data); err != nil {
-		panic(err)
-	}
-	return c
+	_ = "STUB: not implemented"
+	return *new(Context)
 }
 
 // SetResponseMessage implements Context.SetResponseMessage method.
 func (c *routeContext) SetResponseMessage(msg *Message) Context {
-	c.respMsg = msg
-	return c
+	_ = "STUB: not implemented"
+	return *new(Context)
 }
 
 // Send implements Context.Send method.
-func (c *routeContext) Send() bool {
-	return c.session.Send(c)
-}
+func (c *routeContext) Send() bool { _ = "STUB: not implemented"; return false }
 
 // SendTo implements Context.SendTo method.
-func (c *routeContext) SendTo(sess Session) bool {
-	return sess.Send(c)
-}
+func (c *routeContext) SendTo(sess Session) bool { _ = "STUB: not implemented"; return false }
 
 // Get implements Context.Get method.
 func (c *routeContext) Get(key string) (value interface{}, exists bool) {
-	c.mu.RLock()
-	value, exists = c.storage[key]
-	c.mu.RUnlock()
-	return
+	_ = "STUB: not implemented"
+	return nil, false
 }
 
 // Set implements Context.Set method.
-func (c *routeContext) Set(key string, value interface{}) {
-	c.mu.Lock()
-	if c.storage == nil {
-		c.storage = make(map[string]interface{})
-	}
-	c.storage[key] = value
-	c.mu.Unlock()
-}
+func (c *routeContext) Set(key string, value interface{}) { _ = "STUB: not implemented"; return }
 
 // Remove implements Context.Remove method.
-func (c *routeContext) Remove(key string) {
-	c.mu.Lock()
-	delete(c.storage, key)
-	c.mu.Unlock()
-}
+func (c *routeContext) Remove(key string) { _ = "STUB: not implemented"; return }
 
 // Copy implements Context.Copy method.
-func (c *routeContext) Copy() Context {
-	return &routeContext{
-		rawCtx:  c.rawCtx,
-		storage: c.storage,
-		session: c.session,
-		reqMsg:  c.reqMsg,
-		respMsg: c.respMsg,
-	}
-}
+func (c *routeContext) Copy() Context { _ = "STUB: not implemented"; return *new(Context) }
 
-func (c *routeContext) reset() {
-	c.rawCtx = context.Background()
-	c.session = nil
-	c.reqMsg = nil
-	c.respMsg = nil
-	c.storage = nil
-}
+func (c *routeContext) reset() { _ = "STUB: not implemented"; return }

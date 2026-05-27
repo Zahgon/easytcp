@@ -1,8 +1,6 @@
 package easytcp
 
 import (
-	"fmt"
-	"io"
 	"log"
 )
 
@@ -17,11 +15,7 @@ type Logger interface {
 	Tracef(format string, args ...interface{})
 }
 
-func newDiscardLogger() *DefaultLogger {
-	return &DefaultLogger{
-		rawLogger: log.New(io.Discard, "easytcp", log.LstdFlags),
-	}
-}
+func newDiscardLogger() *DefaultLogger { _ = "STUB: not implemented"; return nil }
 
 // DefaultLogger is the default logger instance for this package.
 // DefaultLogger uses the built-in log.Logger.
@@ -31,20 +25,22 @@ type DefaultLogger struct {
 
 // Errorf implements Logger Errorf method.
 func (d *DefaultLogger) Errorf(format string, args ...interface{}) {
-	d.rawLogger.Printf("[ERROR] %s", fmt.Sprintf(format, args...))
+	_ = "STUB: not implemented"
+	return
 }
 
 // Tracef implements Logger Tracef method.
 func (d *DefaultLogger) Tracef(format string, args ...interface{}) {
-	d.rawLogger.Printf("[TRACE] %s", fmt.Sprintf(format, args...))
+	_ = "STUB: not implemented"
+	return
 }
 
 // Log returns the package logger.
 func Log() Logger {
-	return _log
+	_ = "STUB: not implemented"
+
+	// SetLogger sets the package logger.
+	return *new(Logger)
 }
 
-// SetLogger sets the package logger.
-func SetLogger(lg Logger) {
-	_log = lg
-}
+func SetLogger(lg Logger) { _ = "STUB: not implemented"; return }
